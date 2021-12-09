@@ -61,7 +61,7 @@ def showHistEqual(img):
 
     dst, equal_hist = histogramEqualization(img)
 
-    plt.figure(figsize=(8,5))
+    plt.figure(figsize=(10,5))
     plt.subplot(2,2,1)
     binX = np.arange(len(histogram))
     plt.bar(binX, histogram, width=0.5, color='g')
