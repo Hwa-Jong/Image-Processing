@@ -15,9 +15,9 @@ Image Processing Study
 
 ----------
 ## Gaussian Filter Separability Test
-using 2D gaussian filter
-2D gaussian filter time : 3.483424 sec
-using 1D gaussian filter
-1D gaussian filter time : 1.777921 sec
-< results check >
-dst_2D-dst_1D :  -0.0
+using 2D gaussian filter  
+2D gaussian filter time : 3.483424 sec  
+using 1D gaussian filter  
+1D gaussian filter time : 1.777921 sec  
+< results check >  
+dst_2D-dst_1D :  -0.0  
