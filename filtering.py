@@ -24,7 +24,7 @@ def filtering(src, mask, pad_type='zero'):
     print('filtering end...')
     return dst
 
-def getFilter(ftype, fsize):
+def getFilter(ftype, fsize, sigma=1.0):
     
     if ftype == 'average':
         mask = np.ones(fsize)
@@ -39,6 +39,22 @@ def getFilter(ftype, fsize):
 
         mask = base - average
 
+    elif ftype == 'gaussian1D':
+        assert len(fsize)==1, 'gaussian 1D mask size must be 1D Tuple( ex:(3,) )'
+        fsize = fsize[0]
+        x = np.arange(fsize) - fsize//2
+
+        gaus1D = 1/(np.sqrt(2*np.pi)*sigma) * np.exp(-((x*x)/(2*sigma*sigma)))
+        mask = gaus1D / np.sum(gaus1D)
+        mask = mask[:,np.newaxis]
+    
+    elif ftype == 'gaussian2D':
+        (fh, fw) = fsize
+        y, x = np.mgrid[-(fh//2):(fh//2)+1, -(fw//2):(fw//2)+1]
+        gaus2D = 1/(2*np.pi*sigma*sigma) * np.exp(-((x*x + y*y)/(2*sigma*sigma)))
+
+        mask = gaus2D / np.sum(gaus2D)
+   
     return mask
 
 def showFilteringTest(img):

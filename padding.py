@@ -1,10 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def padding(src, pad_size, pad_type='zero'):
+def padding(src, pad_size, pad_type='zero', return_uint8=True):
     h, w = src.shape[:2]
     ph, pw = pad_size
-    pad_img = np.zeros((h+2*ph, w+2*pw), dtype=np.uint8)
+    pad_img = np.zeros((h+2*ph, w+2*pw))
     pad_img[ph:ph+h, pw:pw+w] = src
 
     if pad_type == 'zero':
@@ -39,6 +39,9 @@ def padding(src, pad_size, pad_type='zero'):
 
     else:
         assert False, 'check pad type!'
+
+    if return_uint8:
+        pad_img = pad_img.astype(np.uint8)
 
     return pad_img
 
