@@ -1,2 +1,6 @@
 # Image-Processing
-study 
+Image Processing Study
+
+----------
+## histogram & histogram equalization
+![]()
