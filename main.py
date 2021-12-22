@@ -5,6 +5,7 @@ import padding
 import filtering
 import gaussian_filter_separability
 import interpolation
+import cannyEdge
 
 def histogramTest():
     img = cv2.imread( 'image/lenna.png' , cv2.IMREAD_GRAYSCALE)
@@ -26,13 +27,17 @@ def interpolationTest():
     img = cv2.imread( 'image/lenna.png' , cv2.IMREAD_GRAYSCALE)
     interpolation.showInterpolationTest(img)
 
+def cannyEdgeDetection():
+    img = cv2.imread( 'image/lenna.png' , cv2.IMREAD_GRAYSCALE)
+    cannyEdge.showCannyEdgeTest(img)
 
 def main():
     #histogramTest()
     #paddingTest()
     #filteringTest()
     #gausFilterSeparability()
-    interpolationTest()
+    #interpolationTest()
+    cannyEdgeDetection()
 
     
 

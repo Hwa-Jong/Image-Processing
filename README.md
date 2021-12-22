@@ -33,9 +33,9 @@ dst_2D - dst_1D :  -0.0
  [000 000 000 000 000 000 000]<br />
  [158 000 158 000 162 000 158]<br />
  [000 000 000 000 000 000 000]<br />
- [158 000 158 000 162 000 158]]<br />
- 
+ [158 000 158 000 162 000 158]]<br /> 
  ###### in this case, you can find holes
+
 
 ###### backward img[:7, :7] 
 [[158 158 158 160 162 160 158]<br />
@@ -45,3 +45,7 @@ dst_2D - dst_1D :  -0.0
  [158 158 158 160 162 160 158]<br />
  [158 158 158 160 162 160 158]<br />
  [158 158 158 160 162 160 158]]<br />
+
+----------
+## Canny Edge Detection
+![results](https://github.com/Hwa-Jong/Image-Processing/blob/main/Fig/cannyEdge.png)

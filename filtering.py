@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 import padding
 
-def filtering(src, mask, pad_type='zero'):
+def filtering(src, mask, pad_type='zero', return_uint8=True):
     print('filtering start...')
     h, w = src.shape[:2] 
     mh, mw = mask.shape[:2]
@@ -17,10 +17,11 @@ def filtering(src, mask, pad_type='zero'):
             val = np.sum(pad_img[row:row+mh, col:col+mw] * mask)
             dst[row, col] = val
 
-            # cliping 0 ~ 255
-    dst = np.clip(dst, 0, 255)
-    dst = np.round(dst)
-    dst = dst.astype(np.uint8)
+    if return_uint8:
+        # cliping 0 ~ 255
+        dst = np.clip(dst, 0, 255)
+        dst = np.round(dst)
+        dst = dst.astype(np.uint8)
     print('filtering end...')
     return dst
 
@@ -54,6 +55,18 @@ def getFilter(ftype, fsize, sigma=1.0):
         gaus2D = 1/(2*np.pi*sigma*sigma) * np.exp(-((x*x + y*y)/(2*sigma*sigma)))
 
         mask = gaus2D / np.sum(gaus2D)
+
+    elif ftype == 'DoG':
+        y, x = np.mgrid[-(fsize//2):(fsize//2)+1, -(fsize//2):(fsize//2)+1]
+
+        DoG_x = (-x / sigma**2) * np.exp(-((x**2 + y**2)/(2 * sigma**2)))
+        DoG_y = (-y / sigma**2) * np.exp(-((x**2 + y**2)/(2 * sigma**2)))
+
+        DoG_x = DoG_x - (DoG_x.sum()/fsize**2)
+        DoG_y = DoG_y - (DoG_y.sum()/fsize**2)
+
+        return DoG_x, DoG_y
+
    
     return mask
 
