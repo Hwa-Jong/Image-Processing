@@ -49,3 +49,17 @@ dst_2D - dst_1D :  -0.0
 ----------
 ## Canny Edge Detection
 ![results](https://github.com/Hwa-Jong/Image-Processing/blob/main/Fig/cannyEdge.png)
+
+----------
+## Morphology
+![results](https://github.com/Hwa-Jong/Image-Processing/blob/main/Fig/morphology.png)
+
+----------
+## Restoration
+![results](https://github.com/Hwa-Jong/Image-Processing/blob/main/Fig/noiseRemoval.png)
+
+----------
+## Adaptive Filtering
+![results](https://github.com/Hwa-Jong/Image-Processing/blob/main/Fig/adaptiveFiltering.png)
+
+

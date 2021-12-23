@@ -6,6 +6,9 @@ import filtering
 import gaussian_filter_separability
 import interpolation
 import cannyEdge
+import morphology
+import restoration
+import adaptiveFiltering
 
 def histogramTest():
     img = cv2.imread( 'image/lenna.png' , cv2.IMREAD_GRAYSCALE)
@@ -27,9 +30,22 @@ def interpolationTest():
     img = cv2.imread( 'image/lenna.png' , cv2.IMREAD_GRAYSCALE)
     interpolation.showInterpolationTest(img)
 
-def cannyEdgeDetection():
+def cannyEdgeDetectionTest():
     img = cv2.imread( 'image/lenna.png' , cv2.IMREAD_GRAYSCALE)
     cannyEdge.showCannyEdgeTest(img)
+
+def morphologyTest():
+    morphology.showMorphologyTest()
+
+def restorationTest():
+    img = cv2.imread( 'image/lenna.png' , cv2.IMREAD_GRAYSCALE)
+    restoration.GaussianNoiseRemoval(img)
+
+def adaptiveFilteringTest():
+    img = cv2.imread( 'image/lenna.png' , cv2.IMREAD_GRAYSCALE)
+    adaptiveFiltering.showAdaptiveFilteringTest(img)
+
+
 
 def main():
     #histogramTest()
@@ -37,7 +53,11 @@ def main():
     #filteringTest()
     #gausFilterSeparability()
     #interpolationTest()
-    cannyEdgeDetection()
+    #cannyEdgeDetectionTest()
+    #morphologyTest()
+    #restorationTest()
+    adaptiveFilteringTest()
+
 
     
 
